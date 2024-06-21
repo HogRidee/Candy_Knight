@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvqkhwaw5jipv"]
+[gd_scene load_steps=3 format=3 uid="uid://clagjskr2pl46"]
 
-[ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_dvb72"]
+[ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_axryb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaeli"]
 size = Vector2(46, 14)
@@ -8,7 +8,7 @@ size = Vector2(46, 14)
 [node name="PinkPlatform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dvb72")
+texture = ExtResource("1_axryb")
 region_enabled = true
 region_rect = Rect2(16, 49, 48, 15)
 

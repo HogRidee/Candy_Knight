@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://clagjskr2pl46"]
+[gd_scene load_steps=3 format=3 uid="uid://dvqkhwaw5jipv"]
 
-[ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_axryb"]
+[ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_dvb72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaeli"]
 size = Vector2(46, 14)
 
-[node name="Platform" type="AnimatableBody2D"]
+[node name="BrownPlatform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_axryb")
+texture = ExtResource("1_dvb72")
 region_enabled = true
-region_rect = Rect2(16, 32, 47, 16)
+region_rect = Rect2(16, 32, 48, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
