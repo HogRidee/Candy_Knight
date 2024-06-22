@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6btcdui0hqar"]
+
+[ext_resource type="Texture2D" uid="uid://boil8kkb5nua7" path="res://assets/sprites/finalPlatforms.png" id="1_2tewh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfdep"]
+size = Vector2(64, 14)
+
+[node name="PinkLargePlatform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2tewh")
+region_enabled = true
+region_rect = Rect2(16, 33, 64, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hfdep")
