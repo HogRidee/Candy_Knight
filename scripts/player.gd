@@ -34,7 +34,7 @@ func _physics_process(delta):
 		else:
 			animated_sprite.play("run")
 	else:
-		animated_sprite.play("jump_v2")
+		animated_sprite.play("jump_v3")
 	
 	
 	

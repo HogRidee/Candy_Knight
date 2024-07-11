@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5d0lph11122w"]
+[gd_scene load_steps=25 format=3 uid="uid://c5d0lph11122w"]
 
 [ext_resource type="Texture2D" uid="uid://dtbi7fgpxf6v2" path="res://assets/sprites/idleKnight.png" id="1_brfag"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_brpir"]
@@ -50,6 +50,14 @@ atlas = ExtResource("3_vbmt4")
 region = Rect2(192, 0, 32, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e36m7"]
+atlas = ExtResource("3_vbmt4")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2qo2"]
+atlas = ExtResource("3_vbmt4")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0dfe"]
 atlas = ExtResource("3_vbmt4")
 region = Rect2(32, 0, 32, 40)
 
@@ -110,9 +118,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c2ast")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 10.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,6 +129,17 @@ animations = [{
 "loop": true,
 "name": &"jump_v2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_t2qo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0dfe")
+}],
+"loop": false,
+"name": &"jump_v3",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,7 +169,7 @@ script = ExtResource("1_brpir")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -16)
 sprite_frames = SubResource("SpriteFrames_wixfo")
-animation = &"jump_v2"
+animation = &"jump_v3"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
