@@ -1,3 +1,0 @@
-[gd_scene format=3 uid="uid://cmnhrf3jqtfui"]
-
-[node name="Falling Platform" type="CharacterBody2D"]
