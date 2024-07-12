@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcoprue5ufwft"]
+
+[ext_resource type="Script" path="res://scripts/speedrun.gd" id="1_aieya"]
+[ext_resource type="FontFile" uid="uid://bih7jb7noq0qn" path="res://assets/fonts/PixelOperator8.ttf" id="2_3w7of"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_aieya")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 7.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_3w7of")
+theme_override_font_sizes/font_size = 32
+text = "100.00"
+horizontal_alignment = 2

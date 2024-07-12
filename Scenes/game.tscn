@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://drajuh4g8krv4"]
+[gd_scene load_steps=39 format=3 uid="uid://drajuh4g8krv4"]
 
 [ext_resource type="PackedScene" uid="uid://c5d0lph11122w" path="res://scenes/player.tscn" id="1_kkg01"]
 [ext_resource type="Texture2D" uid="uid://kfyjnwefffqx" path="res://assets/sprites/tilesheet1.png" id="2_svba8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbdt0hp76jir" path="res://scenes/falling_platform.tscn" id="9_v8kcm"]
 [ext_resource type="PackedScene" uid="uid://d0rk0lvtx7lce" path="res://scenes/brown_large_platform.tscn" id="10_hnyvj"]
 [ext_resource type="PackedScene" uid="uid://2drv0mi31hkb" path="res://scenes/lollipop.tscn" id="11_aya41"]
+[ext_resource type="PackedScene" uid="uid://dcoprue5ufwft" path="res://scenes/speedrun.tscn" id="12_erp6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_865ee"]
 texture = ExtResource("2_svba8")
@@ -3610,3 +3611,5 @@ position = Vector2(146, -24)
 
 [node name="Lollipop2" parent="." instance=ExtResource("11_aya41")]
 position = Vector2(-190, -984)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_erp6l")]
