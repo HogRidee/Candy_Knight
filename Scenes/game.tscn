@@ -3444,7 +3444,7 @@ _data = {
 "horizontal": SubResource("Animation_y1etb")
 }
 
-[node name="game" type="Node2D"]
+[node name="Game" type="Node2D"]
 position = Vector2(1, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -3606,10 +3606,12 @@ libraries = {
 }
 autoplay = "horizontal"
 
-[node name="Lollipop" parent="." instance=ExtResource("11_aya41")]
-position = Vector2(146, -24)
+[node name="Enemies" type="Node" parent="."]
 
-[node name="Lollipop2" parent="." instance=ExtResource("11_aya41")]
-position = Vector2(-190, -984)
+[node name="Lollipop" parent="Enemies" instance=ExtResource("11_aya41")]
+position = Vector2(147, -24)
+
+[node name="Lollipop2" parent="Enemies" instance=ExtResource("11_aya41")]
+position = Vector2(-189, -984)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_erp6l")]
