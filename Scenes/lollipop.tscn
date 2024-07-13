@@ -98,7 +98,7 @@ script = ExtResource("1_ro8ul")
 sprite_frames = SubResource("SpriteFrames_s01c6")
 animation = &"jump"
 autoplay = "jump"
-frame_progress = 0.454348
+frame_progress = 0.456008
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_1r4vn")]
