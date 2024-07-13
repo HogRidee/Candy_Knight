@@ -3466,6 +3466,7 @@ z_index = 10
 position = Vector2(2, -4)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
 position = Vector2(0, -63)
 zoom = Vector2(2.5, 2.5)
 limit_left = -272
