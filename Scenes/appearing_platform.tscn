@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://xvbyl224pmvm"]
+
+[ext_resource type="Script" path="res://scripts/appearing_platform.gd" id="1_bm2gm"]
+[ext_resource type="Texture2D" uid="uid://boil8kkb5nua7" path="res://assets/sprites/finalPlatforms.png" id="2_ggaa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py7qk"]
+size = Vector2(48, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkrwr"]
+size = Vector2(48, 20)
+
+[node name="AppearingPlatform" type="CharacterBody2D"]
+script = ExtResource("1_bm2gm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ggaa6")
+region_enabled = true
+region_rect = Rect2(16, 64, 48, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_py7qk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_bkrwr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://drajuh4g8krv4"]
+[gd_scene load_steps=43 format=3 uid="uid://drajuh4g8krv4"]
 
 [ext_resource type="PackedScene" uid="uid://c5d0lph11122w" path="res://scenes/player.tscn" id="1_kkg01"]
 [ext_resource type="Texture2D" uid="uid://kfyjnwefffqx" path="res://assets/sprites/tilesheet1.png" id="2_svba8"]
@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dfbdt0hp76jir" path="res://scenes/falling_platform.tscn" id="9_v8kcm"]
 [ext_resource type="PackedScene" uid="uid://d0rk0lvtx7lce" path="res://scenes/brown_large_platform.tscn" id="10_hnyvj"]
 [ext_resource type="PackedScene" uid="uid://2drv0mi31hkb" path="res://scenes/lollipop.tscn" id="11_aya41"]
+[ext_resource type="Script" path="res://scripts/final_platform.gd" id="11_mlkdc"]
 [ext_resource type="PackedScene" uid="uid://dcoprue5ufwft" path="res://scenes/speedrun.tscn" id="12_erp6l"]
 [ext_resource type="PackedScene" uid="uid://vgsm5m7sgga1" path="res://scenes/stick.tscn" id="13_3i0m2"]
 [ext_resource type="PackedScene" uid="uid://cga3beqg3b6p" path="res://scenes/licorice.tscn" id="14_bgegd"]
+[ext_resource type="PackedScene" uid="uid://xvbyl224pmvm" path="res://scenes/appearing_platform.tscn" id="15_2xx01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_865ee"]
 texture = ExtResource("2_svba8")
@@ -3581,6 +3583,9 @@ autoplay = "vertical"
 [node name="BrownPlatform3" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
 position = Vector2(24, -1833)
 
+[node name="AppearingPlatform" parent="Platforms/Brown/Standard" instance=ExtResource("15_2xx01")]
+position = Vector2(42, -2233)
+
 [node name="BrownPlatform4" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
 position = Vector2(120, -1864)
 
@@ -3590,14 +3595,17 @@ libraries = {
 }
 autoplay = "horizontal"
 
-[node name="BrownPlatform5" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
+[node name="FinalPlatform" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
 position = Vector2(42, -1895)
+script = ExtResource("11_mlkdc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Brown/Standard/BrownPlatform5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Brown/Standard/FinalPlatform"]
 libraries = {
 "": SubResource("AnimationLibrary_il64n")
 }
 autoplay = "vertical"
+
+[node name="Timer" type="Timer" parent="Platforms/Brown/Standard/FinalPlatform"]
 
 [node name="BrownLargePlatform" parent="Platforms/Brown/Standard" instance=ExtResource("10_hnyvj")]
 position = Vector2(-95, -1530)
@@ -3623,3 +3631,5 @@ position = Vector2(222, -208)
 position = Vector2(323, -2305)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_erp6l")]
+
+[connection signal="timeout" from="Platforms/Brown/Standard/FinalPlatform/Timer" to="Platforms/Brown/Standard/FinalPlatform" method="_on_timer_timeout"]
