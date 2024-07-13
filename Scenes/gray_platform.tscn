@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://daselbebojvou"]
+
+[ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_8a850"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaeli"]
+size = Vector2(46, 15)
+
+[node name="GrayPlatform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8a850")
+region_enabled = true
+region_rect = Rect2(16, 65, 48, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jaeli")
+one_way_collision = true

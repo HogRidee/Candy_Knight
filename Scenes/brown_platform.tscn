@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cvoxqy1bqcrb1" path="res://assets/sprites/plataformas.png" id="1_dvb72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaeli"]
-size = Vector2(46, 14)
+size = Vector2(46, 15)
 
 [node name="BrownPlatform" type="AnimatableBody2D"]
 

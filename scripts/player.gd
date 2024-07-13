@@ -11,6 +11,7 @@ var is_dead = false
 # Get the reference from the animated sprite node
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var camera = %Camera2D
 
 func _physics_process(delta): 
 	# Add the gravity.
@@ -52,4 +53,3 @@ func _physics_process(delta):
 func die():
 	is_dead = true
 	animated_sprite.play("damage")
-	
