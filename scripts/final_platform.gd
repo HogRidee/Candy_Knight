@@ -6,6 +6,10 @@ extends AnimatableBody2D
 
 var first_time = true
 
+func _ready():
+	if first_time:
+		animation_player.play("vertical")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.stop_platform and first_time:

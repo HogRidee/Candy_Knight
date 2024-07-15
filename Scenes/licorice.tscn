@@ -1,50 +1,125 @@
-[gd_scene load_steps=7 format=3 uid="uid://cga3beqg3b6p"]
+[gd_scene load_steps=20 format=3 uid="uid://cga3beqg3b6p"]
 
+[ext_resource type="Script" path="res://scripts/licorice.gd" id="1_qvuu2"]
 [ext_resource type="Texture2D" uid="uid://cu3lmvdajrgk0" path="res://assets/sprites/licorice_idle.png" id="1_y3f2g"]
 [ext_resource type="PackedScene" uid="uid://bjcm2sa0uoip" path="res://scenes/killzone.tscn" id="2_wrb8k"]
+[ext_resource type="Texture2D" uid="uid://ct4w76x6yvx05" path="res://assets/sprites/licorice_red.png" id="3_ss21j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua1cv"]
+size = Vector2(78, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok78b"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(0, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvd5"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(76, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2o7b"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(152, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwrnn"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(228, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74dns"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(304, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdpnp"]
+atlas = ExtResource("1_y3f2g")
+region = Rect2(380, 0, 76, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10sln"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(0, 0, 81, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en7pa"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(81, 0, 81, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73ie6"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(162, 0, 81, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6t0i"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(243, 0, 81, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydwmy"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(324, 0, 81, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2dlb"]
+atlas = ExtResource("3_ss21j")
+region = Rect2(405, 0, 81, 129)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wn3hh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok78b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alvd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2o7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwrnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74dns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdpnp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10sln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en7pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73ie6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6t0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydwmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2dlb")
+}],
+"loop": true,
+"name": &"idle_red",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yhtr"]
 size = Vector2(34, 127)
 
-[sub_resource type="Animation" id="Animation_4xufs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[node name="Licorice" type="Node2D" groups=["hit"]]
+script = ExtResource("1_qvuu2")
 
-[sub_resource type="Animation" id="Animation_a7llg"]
-resource_name = "idle"
-length = 0.60001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
+[node name="Hitbox" type="Area2D" parent="."]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lawbc"]
-_data = {
-"RESET": SubResource("Animation_4xufs"),
-"idle": SubResource("Animation_a7llg")
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_ua1cv")
 
-[node name="Licorice" type="Node2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wn3hh")
+animation = &"idle_red"
 
 [node name="Killzone" parent="." instance=ExtResource("2_wrb8k")]
 
@@ -52,12 +127,11 @@ _data = {
 position = Vector2(-4, 1.5)
 shape = SubResource("RectangleShape2D_4yhtr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_y3f2g")
-hframes = 6
+[node name="Timer" type="Timer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lawbc")
-}
-autoplay = "idle"
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="WinTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

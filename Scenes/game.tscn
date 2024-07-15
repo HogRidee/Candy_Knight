@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://drajuh4g8krv4"]
+[gd_scene load_steps=46 format=3 uid="uid://drajuh4g8krv4"]
 
 [ext_resource type="PackedScene" uid="uid://c5d0lph11122w" path="res://scenes/player.tscn" id="1_kkg01"]
 [ext_resource type="Texture2D" uid="uid://kfyjnwefffqx" path="res://assets/sprites/tilesheet1.png" id="2_svba8"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://xvbyl224pmvm" path="res://scenes/appearing_platform.tscn" id="15_2xx01"]
 [ext_resource type="PackedScene" uid="uid://d0syvi3pcvrpf" path="res://scenes/falling_gray_platform.tscn" id="17_ldgrp"]
 [ext_resource type="PackedScene" uid="uid://daselbebojvou" path="res://scenes/gray_platform.tscn" id="18_hu8xm"]
+[ext_resource type="FontFile" uid="uid://bih7jb7noq0qn" path="res://assets/fonts/PixelOperator8.ttf" id="19_detk7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_865ee"]
 texture = ExtResource("2_svba8")
@@ -3590,9 +3591,6 @@ autoplay = "vertical"
 [node name="BrownPlatform3" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
 position = Vector2(24, -1833)
 
-[node name="AppearingPlatform" parent="Platforms/Brown/Standard" instance=ExtResource("15_2xx01")]
-position = Vector2(42, -2233)
-
 [node name="BrownPlatform4" parent="Platforms/Brown/Standard" instance=ExtResource("5_t2cvj")]
 position = Vector2(120, -1864)
 
@@ -3658,6 +3656,9 @@ position = Vector2(224, -2320)
 [node name="GrayPlatform6" parent="Platforms/Gray" instance=ExtResource("18_hu8xm")]
 position = Vector2(144, -2355)
 
+[node name="AppearingPlatform" parent="Platforms/Gray" instance=ExtResource("15_2xx01")]
+position = Vector2(42, -2233)
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Lollipop" parent="Enemies" instance=ExtResource("11_aya41")]
@@ -3679,7 +3680,7 @@ position = Vector2(-42, -400)
 position = Vector2(-186, -632)
 
 [node name="Lollipop6" parent="Enemies" instance=ExtResource("11_aya41")]
-position = Vector2(-324, -632)
+position = Vector2(-154, -632)
 
 [node name="Stick3" parent="Enemies" instance=ExtResource("13_3i0m2")]
 position = Vector2(-187, -975)
@@ -3703,5 +3704,15 @@ position = Vector2(6, -1512)
 position = Vector2(-129, -24)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_erp6l")]
+
+[node name="Won" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 14.0
+offset_top = -2328.0
+offset_right = 85.0
+offset_bottom = -2305.0
+theme_override_fonts/font = ExtResource("19_detk7")
+text = "You won!"
 
 [connection signal="timeout" from="Platforms/Brown/Standard/FinalPlatform/Timer" to="Platforms/Brown/Standard/FinalPlatform" method="_on_timer_timeout"]

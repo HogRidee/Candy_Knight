@@ -63,8 +63,13 @@ func _physics_process(delta):
 
 # Handle player death
 func die():
+	Global.start_boss = false
 	is_dead = true
 	animated_sprite.play("damage")
+	var camera_offset = Vector2(0,-51)
+	camera.position -= camera_offset
+	camera.limit_left += 100
+	camera.limit_right -= 100
 
 func attack():
 	var overlapping_objects = attack_area.get_overlapping_areas()

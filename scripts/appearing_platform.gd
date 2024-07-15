@@ -23,3 +23,4 @@ func _on_area_2d_body_entered(body):
 			enable_collisions()
 			visible = true
 			Global.stop_platform = true
+			Global.start_boss = true
