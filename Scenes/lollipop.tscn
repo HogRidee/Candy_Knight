@@ -1,9 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://2drv0mi31hkb"]
+[gd_scene load_steps=21 format=3 uid="uid://2drv0mi31hkb"]
 
 [ext_resource type="Texture2D" uid="uid://ddysgkns38b88" path="res://assets/sprites/enemy1.png" id="1_1j3ap"]
 [ext_resource type="Script" path="res://scripts/lollipop.gd" id="1_ro8ul"]
 [ext_resource type="PackedScene" uid="uid://bjcm2sa0uoip" path="res://scenes/killzone.tscn" id="2_1r4vn"]
 [ext_resource type="Texture2D" uid="uid://cxxnss4xnducs" path="res://assets/sprites/lolipop_jump.png" id="3_j1msq"]
+[ext_resource type="Texture2D" uid="uid://duwxtia1tvmvw" path="res://assets/sprites/lollipop_hit.png" id="3_uvm10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3cs6"]
+size = Vector2(16, 47)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pkbue"]
 atlas = ExtResource("1_1j3ap")
@@ -24,6 +28,14 @@ region = Rect2(48, 0, 16, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjuae"]
 atlas = ExtResource("1_1j3ap")
 region = Rect2(64, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvt44"]
+atlas = ExtResource("3_uvm10")
+region = Rect2(0, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2qbb"]
+atlas = ExtResource("3_uvm10")
+region = Rect2(16, 0, 16, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x26nx"]
 atlas = ExtResource("3_j1msq")
@@ -69,6 +81,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bvt44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2qbb")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x26nx")
 }, {
 "duration": 1.0,
@@ -91,14 +114,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncp1l"]
 size = Vector2(16, 47)
 
-[node name="Lollipop" type="Node2D"]
+[node name="Lollipop" type="Node2D" groups=["hit"]]
 script = ExtResource("1_ro8ul")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g3cs6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["hit"]]
 sprite_frames = SubResource("SpriteFrames_s01c6")
-animation = &"jump"
-autoplay = "jump"
-frame_progress = 0.456008
+animation = &"die"
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_1r4vn")]
@@ -118,3 +145,8 @@ target_position = Vector2(-8, 0)
 [node name="RayCastBottom" type="RayCast2D" parent="."]
 position = Vector2(5, 0)
 target_position = Vector2(0, 32)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

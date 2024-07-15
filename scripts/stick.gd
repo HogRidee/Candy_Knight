@@ -3,10 +3,16 @@ extends Node2D
 const SPEED = 60
 
 var direction = 1
+var is_dead = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
+@onready var timer = $Timer
+@onready var killzone = $Killzone
+
+func _ready():
+	animated_sprite.play("idle")
 
 func _process(delta):
 	# Detect lateral collisions
@@ -17,4 +23,14 @@ func _process(delta):
 		direction = 1
 		animated_sprite.flip_h = false
 	
-	position.x += direction * SPEED * delta
+	if not is_dead:
+		position.x += direction * SPEED * delta
+
+func die():
+	killzone.queue_free()
+	is_dead = true
+	animated_sprite.play("die")
+	timer.start()
+
+func _on_timer_timeout():
+	queue_free()

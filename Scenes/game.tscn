@@ -3469,7 +3469,7 @@ layer_1/tile_data = PackedInt32Array(65533, 1114113, 6, 65534, 1114113, 6, 65535
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_kkg01")]
 z_index = 10
-position = Vector2(2, -4)
+position = Vector2(2, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 unique_name_in_owner = true
@@ -3669,9 +3669,6 @@ position = Vector2(5, -128)
 [node name="Licorice" parent="Enemies" instance=ExtResource("14_bgegd")]
 position = Vector2(323, -2305)
 
-[node name="Lollipop3" parent="Enemies" instance=ExtResource("11_aya41")]
-position = Vector2(-133, -24)
-
 [node name="Lollipop4" parent="Enemies" instance=ExtResource("11_aya41")]
 position = Vector2(-27, -313)
 
@@ -3701,6 +3698,9 @@ position = Vector2(-184, -1304)
 
 [node name="Lollipop7" parent="Enemies" instance=ExtResource("11_aya41")]
 position = Vector2(6, -1512)
+
+[node name="Lollipop3" parent="Enemies" instance=ExtResource("11_aya41")]
+position = Vector2(-129, -24)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_erp6l")]
 
