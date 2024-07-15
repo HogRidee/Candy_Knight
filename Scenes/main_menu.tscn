@@ -66,9 +66,9 @@ texture_hover = ExtResource("3_a2j0a")
 
 [node name="Quit" type="TextureButton" parent="Button Manager"]
 layout_mode = 0
-offset_left = 516.0
+offset_left = 511.0
 offset_top = 464.0
-offset_right = 548.0
+offset_right = 543.0
 offset_bottom = 480.0
 scale = Vector2(4.5, 4.5)
 texture_normal = ExtResource("4_7yj86")
