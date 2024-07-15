@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcn81c1onpral"]
+
+[ext_resource type="Texture2D" uid="uid://cikp6xt0a8u5c" path="res://assets/sprites/Ataque 1 Regaliz.png" id="1_3yso7"]
+[ext_resource type="Script" path="res://scripts/tentacles.gd" id="1_tim8g"]
+[ext_resource type="PackedScene" uid="uid://bjcm2sa0uoip" path="res://scenes/killzone.tscn" id="3_lhawi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1n5m"]
+radius = 56.0
+height = 544.0
+
+[node name="Tentacles" type="Node2D"]
+script = ExtResource("1_tim8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3yso7")
+region_enabled = true
+region_rect = Rect2(0, 605, 652, 99)
+
+[node name="Killzone" parent="." instance=ExtResource("3_lhawi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-56, -5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_c1n5m")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
