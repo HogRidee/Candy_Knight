@@ -27,10 +27,11 @@ func _process(delta):
 		position.x += direction * SPEED * delta
 
 func die():
-	killzone.queue_free()
+	if not is_dead:
+		killzone.queue_free()
+		animated_sprite.play("die")
+		timer.start()
 	is_dead = true
-	animated_sprite.play("die")
-	timer.start()
 
 func _on_timer_timeout():
 	queue_free()
