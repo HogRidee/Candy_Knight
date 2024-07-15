@@ -55,7 +55,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Start" type="TextureButton" parent="Button Manager"]
-z_index = 1
 layout_mode = 0
 offset_left = 474.0
 offset_top = 379.0
@@ -66,7 +65,6 @@ texture_normal = ExtResource("2_8n2re")
 texture_hover = ExtResource("3_a2j0a")
 
 [node name="Quit" type="TextureButton" parent="Button Manager"]
-z_index = 1
 layout_mode = 0
 offset_left = 516.0
 offset_top = 464.0
@@ -77,19 +75,21 @@ texture_normal = ExtResource("4_7yj86")
 texture_hover = ExtResource("5_u5m7c")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(575.5, 288)
 scale = Vector2(3.99687, 4.5125)
 texture = ExtResource("2_jklgd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Title" type="TextureRect" parent="."]
 offset_left = -69.0
 offset_top = -26.0
 offset_right = 251.0
 offset_bottom = 134.0
 scale = Vector2(4, 4)
+mouse_filter = 2
 texture = ExtResource("7_21iv3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
 libraries = {
 "": SubResource("AnimationLibrary_dsl5i")
 }
